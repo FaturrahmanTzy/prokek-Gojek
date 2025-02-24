@@ -1,38 +1,33 @@
-import sequelize from "../../../utils/db_config";
-import { DataTypes } from "sequelize";
+const sequelize = require("../../../utils/db_config.js");
+const { DataTypes } = require("sequelize");
 
 const Menu = sequelize.define("menu", {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull : false
+        allowNull: false
     },
-    nama_menu : {
+    nama_menu: {
         type: DataTypes.STRING(250),
-        allowNull : false
+        allowNull: false
     },
-    harga : {
+    harga: {
         type: DataTypes.INTEGER,
-        allowNull : false
+        allowNull: false
     },
-    gambar : {
+    gambar: {
         type: DataTypes.STRING(250),
-        allowNull : false
+        allowNull: false
     },
-    kategori : {
-        type: DataTypes.STRING,
-        allowNull : false
+    deskripsi: {
+        type: DataTypes.STRING(250),
+        allowNull: false
     },
-    deskripsi : {
-        type: DataTypes.STRING,
-        allowNull : false
-    },
-    },
-    {
-        freezeTableName: true
-    }
-)
+}, {
+    freezeTableName: true
+});
 
 sequelize.sync();
-export default Menu
+
+module.exports = Menu;

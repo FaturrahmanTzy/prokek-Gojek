@@ -1,11 +1,10 @@
-
-const modelMenu = require("./model.js");
+const modelInbox = require("./model.js");
 
 const getData = async (req, res) => {
     try {
-        const tampil = await modelMenu.findAll();
+        const tampil = await modelInbox.findAll();
         res.status(200).json({
-            message: "Data Menu berhasil diambil",
+            message: "success",
             data: tampil
         });
     } catch (error) {

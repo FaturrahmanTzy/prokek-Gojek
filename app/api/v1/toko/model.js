@@ -1,39 +1,42 @@
-import { DataTypes } from "sequelize";
-import sequelize from "../../../utils/db_config";
+const { DataTypes } = require("sequelize");
+const sequelize = require("../../../utils/db_config");
 
 const Toko = sequelize.define("toko", {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull : false
+        allowNull: false
     },
-    nama_toko : {
+    nama_toko: {
         type: DataTypes.STRING(100),
-        allowNull : false
+        allowNull: false
     },
-    deskripsi : {
+    menu_id : {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    deskripsi: {
         type: DataTypes.STRING(250),
-        allowNull : false
+        allowNull: false
     },
-    logo : {
+    logo: {
         type: DataTypes.STRING(250),
-        allowNull : false
+        allowNull: false
     },
-    benner : {
-        type: Datetypes.STRING(250),
-        allowNull : false
+    benner: {
+        type: DataTypes.STRING(250), 
+        allowNull: false
     },
-    menu_items : {
-        type: DataTypes.JSON,
-        allowNull : false
+    menu_items: {
+        type: DataTypes.STRING(100),
+        allowNull: false
     },
 }, 
-    {
-        freezeTableName: true
-    }
-)
+{
+    freezeTableName: true
+});
 
-sequelize.sync();
+sequelize.sync({ force: false });
 
-export default Toko
+module.exports = Toko;
