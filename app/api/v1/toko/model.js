@@ -14,7 +14,11 @@ const Toko = sequelize.define("toko", {
     },
     menu_id : {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+            model: "menu",
+            key: "id"
+        }
     },
     deskripsi: {
         type: DataTypes.STRING(250),
@@ -37,6 +41,6 @@ const Toko = sequelize.define("toko", {
     freezeTableName: true
 });
 
-sequelize.sync({ force: false });
+sequelize.sync( );
 
 module.exports = Toko;
