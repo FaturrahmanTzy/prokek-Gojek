@@ -1,5 +1,5 @@
 const { DataTypes } = require("sequelize");
-const sequelize = require("../../../utils/db_config");
+const sequelize = require("../../../utils/db_config.js");
 
 const Toko = sequelize.define("toko", {
     id: {
@@ -41,6 +41,6 @@ const Toko = sequelize.define("toko", {
     freezeTableName: true
 });
 
-sequelize.sync( );
+sequelize.sync();
 
 module.exports = Toko;

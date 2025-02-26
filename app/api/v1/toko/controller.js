@@ -1,4 +1,4 @@
-const { modelToko, modelMenu } = require("./model.js");
+const { modelToko, modelMenu } = require("../../../models/relasi.js");
 
 const getData = async (req, res) => {
     try {
@@ -19,6 +19,29 @@ const getData = async (req, res) => {
     }
 };
 
+const createData = async (req, res) => {
+    try {
+        const { nama_toko,menu_id, deskripsi, logo, benner, menu_item  } = req.body;
+        const tambah = await modelToko.create({
+            nama_toko,
+            menu_id,
+            deskripsi,
+            logo,
+            benner,
+            menu_item
+        })
+        res.status(200).json({
+            message: "Data berhasil ditambahkan",
+            data: tambah
+        })
+    } catch (error) {
+        res.status(500).json({
+            message: error.message
+        });
+    }
+}
+
 module.exports = {
-    getData
+    getData,
+    createData
 };

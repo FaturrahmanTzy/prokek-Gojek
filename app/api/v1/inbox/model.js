@@ -1,4 +1,4 @@
-const sequelize = require("../../../utils/db_config");
+const sequelize = require("../../../utils/db_config.js");
 const { DataTypes } = require("sequelize");
 
 const Inbox = sequelize.define("inbox", {

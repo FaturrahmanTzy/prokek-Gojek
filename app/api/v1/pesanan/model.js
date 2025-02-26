@@ -13,9 +13,13 @@ const Pesanan = sequelize.define("pesanan", {
         type: DataTypes.STRING(50),
         allowNull: false
     },
-    menu_id: {
+    menu_id : {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+            model: "menu",
+            key: "id"
+        }
     },
     total_harga: {
         type: DataTypes.INTEGER,

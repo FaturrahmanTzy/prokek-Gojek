@@ -14,6 +14,27 @@ const getData = async (req, res) => {
     }
 };
 
+const createData = async (req, res) => {
+    try {
+        const { nama_produk, harga, gambar, deskripsi } = req.body;
+        const tambah = await modelProduk.create({
+            nama_produk,
+            harga,
+            gambar,
+            deskripsi
+        });
+        res.status(200).json({
+            message: "Data berhasil ditambahkan",
+            data: tambah
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: error.message
+        });
+    }
+}
+
 module.exports = {
-    getData
+    getData,
+    createData
 }

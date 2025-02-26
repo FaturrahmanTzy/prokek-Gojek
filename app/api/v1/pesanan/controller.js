@@ -1,13 +1,15 @@
-const modelPesanan = require("./model.js");
+const { modelPesanan, modelMenu } = require("../../../models/relasi.js");
 
 const getData = async (req, res) => {
     try {
-        const data = await modelPesanan.findAll({
-            include: {
-                model: modelMenu,
-                attributes: ["nama_menu"]
+        const data = await modelPesanan.findAll(
+            {
+                include: {
+                    model : modelMenu,
+                    attributes: ["nama_menu"]
+                }
             }
-        });
+        );
         res.status(200).json(data);
     } catch (error) {
         res.status(500).json({ error: error.message });

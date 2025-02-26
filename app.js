@@ -12,6 +12,7 @@ const app = express();
 const path = "/api/v1";
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.use(path, routerPoster);
